@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<domain:Domain xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:domain="http://www.eclipse.org/sirius-web/domain" name="tuber">
+  <types name="TUber">
+    <relations name="agents" many="true" containment="true" targetType="//@types.2"/>
+  </types>
+  <types name="Customer" superTypes="//@types.12">
+    <relations name="payments" many="true" containment="true" targetType="//@types.18"/>
+  </types>
+  <types name="Agent">
+    <attributes name="city"/>
+    <relations name="rides" many="true" containment="true" targetType="//@types.4"/>
+    <relations name="customers" optional="false" many="true" containment="true" targetType="//@types.1"/>
+    <relations name="drivers" optional="false" many="true" containment="true" targetType="//@types.3"/>
+  </types>
+  <types name="Driver" superTypes="//@types.12">
+    <relations name="drives" optional="false" containment="true" targetType="//@types.5"/>
+  </types>
+  <types name="Ride" abstract="true">
+    <attributes name="id" optional="false"/>
+    <attributes name="status" optional="false"/>
+    <attributes name="startTime" optional="false"/>
+    <attributes name="amount" optional="false" type="NUMBER"/>
+    <attributes name="endTime" optional="false"/>
+    <relations name="customer" optional="false" targetType="//@types.1"/>
+    <relations name="driver" optional="false" targetType="//@types.3"/>
+  </types>
+  <types name="Vehicle" abstract="true">
+    <attributes name="name" optional="false"/>
+  </types>
+  <types name="Car" superTypes="//@types.5"/>
+  <types name="MotorBike" superTypes="//@types.5"/>
+  <types name="Limo" superTypes="//@types.5"/>
+  <types name="CarRide" superTypes="//@types.4"/>
+  <types name="MotorRide" superTypes="//@types.4"/>
+  <types name="LimoRide" superTypes="//@types.4"/>
+  <types name="User" abstract="true">
+    <attributes name="rating" optional="false"/>
+    <attributes name="name" optional="false"/>
+    <attributes name="status" optional="false"/>
+    <relations name="supportCalls" many="true" containment="true" targetType="//@types.13"/>
+    <relations name="location" optional="false" containment="true" targetType="//@types.17"/>
+  </types>
+  <types name="SupportCall" abstract="true">
+    <attributes name="resolved" optional="false" type="BOOLEAN"/>
+    <attributes name="description" optional="false"/>
+  </types>
+  <types name="SafetyIssue" superTypes="//@types.13">
+    <relations name="ride" optional="false" targetType="//@types.4"/>
+  </types>
+  <types name="PaymentIssue" superTypes="//@types.13">
+    <relations name="ride" optional="false" targetType="//@types.4"/>
+  </types>
+  <types name="AccountIssue" superTypes="//@types.13"/>
+  <types name="Location">
+    <attributes name="lat" optional="false"/>
+    <attributes name="long" optional="false"/>
+  </types>
+  <types name="Payment">
+    <attributes name="id" optional="false"/>
+    <attributes name="status" optional="false" type="BOOLEAN"/>
+    <attributes name="amount" optional="false" type="NUMBER"/>
+    <relations name="pays" optional="false" targetType="//@types.4"/>
+  </types>
+</domain:Domain>

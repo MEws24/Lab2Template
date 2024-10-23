@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<view:View xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:diagram="http://www.eclipse.org/sirius-web/diagram" xmlns:view="http://www.eclipse.org/sirius-web/view">
+  <descriptions xmi:type="diagram:DiagramDescription" name="Main Operational View" domainType="tuber::TUber" titleExpression="aql:'Austrian Cab Service'" autoLayout="true">
+    <palette>
+      <nodeTools name="Agent">
+        <body xmi:type="view:CreateInstance" typeName="tuber::Agent" referenceName="agents"/>
+      </nodeTools>
+    </palette>
+    <nodeDescriptions name="City Agent" domainType="tuber::Agent" semanticCandidatesExpression="aql:self.agents" defaultWidthExpression="10" defaultHeightExpression="10">
+      <palette>
+        <deleteTool name="Delete">
+          <body xmi:type="view:ChangeContext" expression="aql:self.defaultDelete()"/>
+        </deleteTool>
+        <labelEditTool name="Edit Label">
+          <body xmi:type="view:ChangeContext" expression="aql:self.defaultEditLabel(newLabel)"/>
+        </labelEditTool>
+        <toolSections name="Hide/Show Tool Section">
+          <nodeTools name="Hide" iconURLsExpression="aql:'/icons/full/obj16/HideTool.svg'">
+            <body xmi:type="view:ChangeContext" expression="aql:diagramServices.hide(Sequence{selectedNode})"/>
+          </nodeTools>
+          <nodeTools name="Hide all content" preconditionExpression="aql:selectedNode.getChildNodes()->notEmpty() or selectedNode.getBorderNodes()->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/HideTool.svg'">
+            <body xmi:type="view:ChangeContext" expression="aql:diagramServices.hide(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+          </nodeTools>
+          <nodeTools name="Show all content" preconditionExpression="aql:selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.isHidden())->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+            <body xmi:type="view:ChangeContext" expression="aql:diagramServices.reveal(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+          </nodeTools>
+          <nodeTools name="Reset content" preconditionExpression="aql:selectedNode.getChildNodes()->notEmpty() or selectedNode.getBorderNodes()->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+            <body xmi:type="view:ChangeContext" expression="aql:diagramServices.resetViewModifiers(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+          </nodeTools>
+          <nodeTools name="Show valued content" preconditionExpression="aql:selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.isHidden())->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+            <body xmi:type="view:ChangeContext" expression="aql:diagramServices.reveal(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.getChildNodes()->notEmpty() or n.getBorderNodes()->notEmpty()))"/>
+          </nodeTools>
+        </toolSections>
+        <toolSections>
+          <nodeTools name="Create Customer">
+            <body xmi:type="view:CreateInstance" typeName="tuber::Customer" referenceName="customers"/>
+          </nodeTools>
+          <nodeTools name="Create Driver"/>
+          <nodeTools name="Create Car Ride"/>
+        </toolSections>
+      </palette>
+      <childrenLayoutStrategy xmi:type="diagram:FreeFormLayoutStrategyDescription"/>
+      <style xmi:type="diagram:RectangularNodeStyleDescription" borderRadius="6" borderLineStyle="Dash_Dot">
+        <borderColor xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Blue%20Colors%20Palette']/@colors[name='blue%20300']"/>
+        <background xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='white']"/>
+      </style>
+      <childrenDescriptions name="Customer" domainType="tuber::Customer" semanticCandidatesExpression="aql:self.customers" defaultWidthExpression="5" defaultHeightExpression="5">
+        <palette>
+          <deleteTool name="Delete">
+            <body xmi:type="view:ChangeContext" expression="aql:self.defaultDelete()"/>
+          </deleteTool>
+          <labelEditTool name="Edit Label">
+            <body xmi:type="view:ChangeContext" expression="aql:self.defaultEditLabel(newLabel)"/>
+          </labelEditTool>
+          <toolSections name="Hide/Show Tool Section">
+            <nodeTools name="Hide" iconURLsExpression="aql:'/icons/full/obj16/HideTool.svg'">
+              <body xmi:type="view:ChangeContext" expression="aql:diagramServices.hide(Sequence{selectedNode})"/>
+            </nodeTools>
+            <nodeTools name="Hide all content" preconditionExpression="aql:selectedNode.getChildNodes()->notEmpty() or selectedNode.getBorderNodes()->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/HideTool.svg'">
+              <body xmi:type="view:ChangeContext" expression="aql:diagramServices.hide(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+            </nodeTools>
+            <nodeTools name="Show all content" preconditionExpression="aql:selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.isHidden())->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+              <body xmi:type="view:ChangeContext" expression="aql:diagramServices.reveal(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+            </nodeTools>
+            <nodeTools name="Reset content" preconditionExpression="aql:selectedNode.getChildNodes()->notEmpty() or selectedNode.getBorderNodes()->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+              <body xmi:type="view:ChangeContext" expression="aql:diagramServices.resetViewModifiers(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+            </nodeTools>
+            <nodeTools name="Show valued content" preconditionExpression="aql:selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.isHidden())->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+              <body xmi:type="view:ChangeContext" expression="aql:diagramServices.reveal(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.getChildNodes()->notEmpty() or n.getBorderNodes()->notEmpty()))"/>
+            </nodeTools>
+          </toolSections>
+          <toolSections>
+            <nodeTools name="Add Location">
+              <body xmi:type="view:CreateInstance" typeName="tuber::Location" referenceName="location"/>
+            </nodeTools>
+          </toolSections>
+        </palette>
+        <childrenLayoutStrategy xmi:type="diagram:FreeFormLayoutStrategyDescription"/>
+        <style xmi:type="diagram:ImageNodeStyleDescription" borderSize="0" shape="3497ae72-45a3-4ce3-b218-a99f8fb68bf2">
+          <borderColor xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='black']"/>
+        </style>
+        <conditionalStyles condition="aql:self.status = 'REQUESTED'">
+          <style xmi:type="diagram:ImageNodeStyleDescription" borderSize="0" shape="2429e56a-bb47-4ee2-8e03-51c80051a176">
+            <borderColor xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='black']"/>
+          </style>
+        </conditionalStyles>
+        <conditionalStyles condition="aql:self.status = 'ONGOING'">
+          <style xmi:type="diagram:ImageNodeStyleDescription" borderSize="0" shape="83cbb4af-4b33-4098-b248-52fa598ddbdc">
+            <borderColor xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='black']"/>
+          </style>
+        </conditionalStyles>
+        <borderNodesDescriptions name="Customer Location" domainType="tuber::Location" semanticCandidatesExpression="aql:self.location" defaultWidthExpression="2" defaultHeightExpression="2">
+          <palette>
+            <deleteTool name="Delete">
+              <body xmi:type="view:ChangeContext" expression="aql:self.defaultDelete()"/>
+            </deleteTool>
+            <labelEditTool name="Edit Label">
+              <body xmi:type="view:ChangeContext" expression="aql:self.defaultEditLabel(newLabel)"/>
+            </labelEditTool>
+            <toolSections name="Hide/Show Tool Section">
+              <nodeTools name="Hide" iconURLsExpression="aql:'/icons/full/obj16/HideTool.svg'">
+                <body xmi:type="view:ChangeContext" expression="aql:diagramServices.hide(Sequence{selectedNode})"/>
+              </nodeTools>
+              <nodeTools name="Hide all content" preconditionExpression="aql:selectedNode.getChildNodes()->notEmpty() or selectedNode.getBorderNodes()->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/HideTool.svg'">
+                <body xmi:type="view:ChangeContext" expression="aql:diagramServices.hide(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+              </nodeTools>
+              <nodeTools name="Show all content" preconditionExpression="aql:selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.isHidden())->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+                <body xmi:type="view:ChangeContext" expression="aql:diagramServices.reveal(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+              </nodeTools>
+              <nodeTools name="Reset content" preconditionExpression="aql:selectedNode.getChildNodes()->notEmpty() or selectedNode.getBorderNodes()->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+                <body xmi:type="view:ChangeContext" expression="aql:diagramServices.resetViewModifiers(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+              </nodeTools>
+              <nodeTools name="Show valued content" preconditionExpression="aql:selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.isHidden())->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+                <body xmi:type="view:ChangeContext" expression="aql:diagramServices.reveal(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.getChildNodes()->notEmpty() or n.getBorderNodes()->notEmpty()))"/>
+              </nodeTools>
+            </toolSections>
+          </palette>
+          <childrenLayoutStrategy xmi:type="diagram:FreeFormLayoutStrategyDescription"/>
+          <style xmi:type="diagram:ImageNodeStyleDescription" borderSize="0" shape="eaaef488-e0e0-4015-85bf-9be6e8200b84">
+            <borderColor xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='black']"/>
+          </style>
+          <outsideLabels textAlign="CENTER">
+            <style borderSize="0">
+              <borderColor xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='black']"/>
+              <background xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='transparent']"/>
+            </style>
+          </outsideLabels>
+          <outsideLabels labelExpression="aql:'Lat: ' + self.lat.toString() + '\nLong: ' + self.long.toString()" textAlign="CENTER">
+            <style fontSize="8" borderSize="0">
+              <borderColor xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='black']"/>
+              <background xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='transparent']"/>
+            </style>
+          </outsideLabels>
+        </borderNodesDescriptions>
+        <outsideLabels labelExpression="aql:'Customer(' + self.name + ', R: ' + self.rating + ')'" textAlign="CENTER">
+          <style fontSize="12" italic="true" borderSize="0">
+            <borderColor xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='black']"/>
+            <background xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='transparent']"/>
+          </style>
+        </outsideLabels>
+      </childrenDescriptions>
+      <insideLabel labelExpression="aql:'Agent ' + self.city">
+        <style bold="true" borderSize="0" showIconExpression="aql:true" labelIcon="6efdb527-5137-4b97-a631-12234f6d59d5"/>
+      </insideLabel>
+    </nodeDescriptions>
+  </descriptions>
+  <descriptions xmi:type="diagram:DiagramDescription" name="Payment View" domainType="tuber::TUber" titleExpression="aql:'Cab Services Payment and Call Logs'" autoLayout="true">
+    <palette/>
+    <nodeDescriptions name="Payment Customer" domainType="tuber::Customer" semanticCandidatesExpression="aql:self.agents.customers" defaultWidthExpression="10" defaultHeightExpression="10">
+      <palette>
+        <deleteTool name="Delete">
+          <body xmi:type="view:ChangeContext" expression="aql:self.defaultDelete()"/>
+        </deleteTool>
+        <labelEditTool name="Edit Label">
+          <body xmi:type="view:ChangeContext" expression="aql:self.defaultEditLabel(newLabel)"/>
+        </labelEditTool>
+        <nodeTools name="Create Payment">
+          <body xmi:type="view:CreateInstance" typeName="tuber::Payment" referenceName="payments"/>
+        </nodeTools>
+        <edgeTools name="Payment Issue">
+          <body xmi:type="view:ChangeContext" expression="aql:semanticEdgeSource">
+            <children xmi:type="view:CreateInstance" typeName="tuber::PaymentIssue" referenceName="supportCalls" variableName="newPaymentIssueInstance">
+              <children xmi:type="view:ChangeContext" expression="aql:newPaymentIssueInstance">
+                <children xmi:type="view:SetValue" featureName="ride" valueExpression="aql:semanticEdgeTarget"/>
+              </children>
+            </children>
+          </body>
+        </edgeTools>
+        <edgeTools name="Safety Issue">
+          <body xmi:type="view:ChangeContext" expression="aql:semanticEdgeSource">
+            <children xmi:type="view:CreateInstance" typeName="tuber::SafetyIssue" referenceName="supportCalls" variableName="newSafetyIssueInstance">
+              <children xmi:type="view:ChangeContext" expression="aql:newSafetyIssueInstance">
+                <children xmi:type="view:SetValue" featureName="ride" valueExpression="aql:semanticEdgeTarget"/>
+              </children>
+            </children>
+          </body>
+        </edgeTools>
+        <toolSections name="Hide/Show Tool Section">
+          <nodeTools name="Hide" iconURLsExpression="aql:'/icons/full/obj16/HideTool.svg'">
+            <body xmi:type="view:ChangeContext" expression="aql:diagramServices.hide(Sequence{selectedNode})"/>
+          </nodeTools>
+          <nodeTools name="Hide all content" preconditionExpression="aql:selectedNode.getChildNodes()->notEmpty() or selectedNode.getBorderNodes()->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/HideTool.svg'">
+            <body xmi:type="view:ChangeContext" expression="aql:diagramServices.hide(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+          </nodeTools>
+          <nodeTools name="Show all content" preconditionExpression="aql:selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.isHidden())->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+            <body xmi:type="view:ChangeContext" expression="aql:diagramServices.reveal(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+          </nodeTools>
+          <nodeTools name="Reset content" preconditionExpression="aql:selectedNode.getChildNodes()->notEmpty() or selectedNode.getBorderNodes()->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+            <body xmi:type="view:ChangeContext" expression="aql:diagramServices.resetViewModifiers(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes()))"/>
+          </nodeTools>
+          <nodeTools name="Show valued content" preconditionExpression="aql:selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.isHidden())->notEmpty()" iconURLsExpression="aql:'/icons/full/obj16/ShowTool.svg'">
+            <body xmi:type="view:ChangeContext" expression="aql:diagramServices.reveal(selectedNode.getChildNodes()->union(selectedNode.getBorderNodes())->select(n | n.getChildNodes()->notEmpty() or n.getBorderNodes()->notEmpty()))"/>
+          </nodeTools>
+        </toolSections>
+      </palette>
+      <childrenLayoutStrategy xmi:type="diagram:FreeFormLayoutStrategyDescription"/>
+      <style xmi:type="diagram:RectangularNodeStyleDescription" borderRadius="5" borderLineStyle="Dash_Dot">
+        <borderColor xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='black']"/>
+        <background xmi:type="view:FixedColor" href="1952d117-7d88-32c4-a839-3858e5e779ae#//@colorPalettes[name='Special%20Colors%20Palette']/@colors[name='transparent']"/>
+      </style>
+      <insideLabel textAlign="CENTER" position="BOTTOM_CENTER">
+        <style borderSize="0" showIconExpression="aql:true" labelIcon="3497ae72-45a3-4ce3-b218-a99f8fb68bf2"/>
+      </insideLabel>
+    </nodeDescriptions>
+  </descriptions>
+</view:View>
