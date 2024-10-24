@@ -1,0 +1,54 @@
+TUber ExampleTUber {
+	WienAgent(WIEN) {
+		drivers [
+			driver D1 {
+				rating 4.75
+				status IDLE
+				earnings 0.0
+				location WIEN(48.2021, 16.3709)
+				vehicle V1(CAR, 2, SHARED)
+			},
+			driver D2 {
+				rating 4.75
+				status ONGOING
+				earnings 0.0
+				location WIEN(48.2118, 16.3877)
+				vehicle V2(CAR, 2, SHARED)
+			}
+		]
+		riders [ 
+			rider C1 {
+				rating 4.75
+				status ONGOING
+				spendings 0.0
+				location WIEN(48.2095, 16.3701)
+			},
+			rider C2 {
+				rating 4.75
+				status IDLE
+				spendings 0.0
+				location WIEN(48.2075, 16.3651)
+			}
+		]
+		rides [
+			CarRide R1 (driver=D1) {
+				id "1"
+				date "2024-10-22T 17:21:52.686+0200"
+				amount 1.0
+				// WARNING
+				status ONGOING
+				rate 4.0
+				customers (C1)
+			},
+			CarRide R2 (driver=D2) {
+				id "2"
+				date "2024-10-23T 15:49:31.115+0200"
+				amount 1.0
+				// WARNING
+				status ONGOING
+				rate 4.0
+				customers (C2)
+			}
+		]
+	}
+}

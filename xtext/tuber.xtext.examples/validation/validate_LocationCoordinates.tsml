@@ -1,0 +1,62 @@
+TUber ExampleTUber {
+	WienAgent(WIEN) {
+		drivers [
+			driver D1 {
+				rating 4.75
+				status IDLE
+				earnings 110.5
+				// ERROR
+				location WIEN(48.0, 16.3713)
+				vehicle V1(CAR, 4, SHARED)
+			},
+			driver D2 {
+				rating 4.97
+				status ONGOING
+				earnings 3785.92
+				// ERROR
+				location WIEN(48.4, 16.3728)
+				vehicle V2(LUXURY, 2, SHARED)
+			},
+			driver D3 {
+				rating 4.92
+				status IDLE
+				earnings 3785.92
+				// ERROR
+				location WIEN(48.2093, 16.1)
+				vehicle V3(CAR, 4)
+			},
+			driver D4 {
+				rating 4.92
+				status IDLE
+				earnings 3785.92
+				// ERROR
+				location WIEN(48.2093, 16.7)
+				vehicle V3(CAR, 4)
+			}
+		]
+	},
+	SalzburgAgent(SALZBURG) {
+		drivers [
+			driver D5 {
+				rating 0.0
+				status IDLE
+				earnings 0.0
+				// ERROR
+				location SALZBURG(47.7, 14.5)
+				vehicle V4(MOTORBIKE, 1)
+			}
+		]
+	},
+	LinzAgent(LINZ) {
+		drivers [
+			driver D6 {
+				rating 0.0
+				status IDLE
+				earnings 0.0
+				// ERROR
+				location LINZ(48.2, 14.4)
+				vehicle V4(MOTORBIKE, 1)
+			}
+		]
+	}
+}

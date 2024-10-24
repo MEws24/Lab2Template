@@ -1,0 +1,160 @@
+TUber ExampleTUber {
+	WienAgent(WIEN) {
+		drivers [
+			driver D1 {
+				rating 4.75
+				status IDLE
+				earnings 18.75
+				location WIEN(48.2081, 16.3713)
+				vehicle V1(CAR, 4, SHARED)
+			},
+			driver D2 {
+				rating 4.97
+				status ONGOING
+				earnings 73.26
+				location WIEN(48.2075, 16.3728)
+				vehicle V2(LUXURY, 2, SHARED)
+			},
+			driver D3 {
+				rating 4.92
+				status IDLE
+				earnings 17.58
+				location WIEN(48.2093, 16.3698)
+				vehicle V3(CAR, 4)
+			}
+		]
+		riders [ 
+			rider C1 {
+				rating 4.95
+				status IDLE
+				spendings 18.75
+				location WIEN(48.2095, 16.3701)
+				payments [ 
+					R1 -> (CASH, PAID)
+				]
+			},
+			rider C2 {
+				rating 4.87
+				status ONGOING
+				spendings 17.25
+				location WIEN(48.2075, 16.3651)
+				payments [ 
+					R2 -> (CREDITCARD, PAID), 
+					R4 -> (CREDITCARD)
+				]
+			},
+			rider C3 {
+				rating 4.07
+				status IDLE
+				spendings 34.83
+				location WIEN(48.2091, 16.3676)
+				supportCalls [
+					{
+						type PAYMENT
+						status RESOLVED
+						date "2024-10-23T 11:35:30.782+0200"
+						duration 5.51
+						ride R2
+						issue "Failed to send payment"
+					},
+					{
+						type SAFETY
+						status RESOLVED
+						date "2024-10-24T 13:39:21.511+0200"
+						duration 6.84
+						ride R3
+						issue "Unsafe driving"
+					}
+				]
+				payments [ 
+					R2 -> (APPLEPAY, PAID),
+					R3 -> (PAYPAL, PAID)
+				]
+			}
+		]
+		rides [
+			CarRide R1 (driver=D1) {
+				id "1"
+				date "2024-10-22T 17:21:52.686+0200"
+				amount 18.75
+				status COMPLETED
+				rate 4.0
+				customers (C1)
+			},
+			LuxuryRide R2 (driver=D2) {
+				id "2"
+				date "2024-10-23T 15:49:31.115+0200"
+				amount 34.50
+				status COMPLETED
+				rate 10.0
+				customers (C2, C3)
+			},
+			CarRide R3 (driver=D3) {
+				id "3"
+				date "2024-10-24T 12:56:57.821+0200"
+				amount 17.58
+				status COMPLETED
+				rate 4.0
+				customers (C3)
+			},
+			LuxuryRide R4 (driver=D2) {
+				id "4"
+				date "10"
+				amount 38.75
+				status ONGOING
+				rate 10.0
+				customers (C2)
+			}
+		]
+	},
+	SalzburgAgent(SALZBURG) {
+		drivers [
+			driver D4 {
+				rating 4.75
+				status IDLE
+				earnings 13.10
+				location SALZBURG(47.7581, 13.0527)
+				supportCalls [
+					{
+						type ACCOUNT
+						status PENDING
+						date "2024-10-24T 15:57:12.218+0200"
+						duration 4.71
+						issue "Forgot password"
+					}
+				]
+				vehicle V4(MOTORBIKE, 1)
+			}
+		]
+		riders [
+			rider C4 {
+				rating 5.0
+				status IDLE
+				spendings 13.10
+				location SALZBURG(47.7589, 13.0521)
+				payments [ 
+					R5 -> (CREDITCARD, PAID)
+				]
+			},
+			rider C5 {
+				rating 0.0
+				status IDLE
+				spendings 0.0
+				location SALZBURG(47.7477, 13.0542)
+			}
+		]
+		rides [
+			MotorRide R5 (driver=D4) {
+				id "5"
+				date "2024-10-24T 18:21:19.633+0200"
+				amount 13.10
+				status COMPLETED
+				rate 2.0
+				customers (C4)
+			}
+		]
+	},
+	LinzAgent(LINZ) {
+		// no rides in Linz yet
+	}
+}

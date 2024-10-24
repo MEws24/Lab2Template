@@ -1,0 +1,9 @@
+TUber ExampleTUber {
+	WienAgent(WIEN) {},
+	
+	// WARNING
+	salzburgAgent(SALZBURG) {},
+	
+	// WARNING
+	linzAgent(LINZ) {}
+}

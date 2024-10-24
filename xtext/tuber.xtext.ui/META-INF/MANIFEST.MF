@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: tuber.xtext.ui
+Bundle-ManifestVersion: 2
+Bundle-Name: tuber.xtext.ui
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: tuber.xtext.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: tuber.xtext,
+ tuber.xtext.ide,
+ tuber,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.14.300",
+ org.eclipse.ui.ide;bundle-version="3.18.500",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: tuber.xtext.ui.quickfix,
+ tuber.xtext.ui.contentassist,
+ tuber.xtext.ui.internal
+Bundle-Activator: tuber.xtext.ui.internal.XtextActivator

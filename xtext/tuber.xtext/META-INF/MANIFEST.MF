@@ -1,0 +1,25 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: tuber.xtext
+Bundle-ManifestVersion: 2
+Bundle-Name: tuber.xtext
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: tuber.xtext; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: tuber,
+ org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.16.0",
+ org.eclipse.xtext.xbase.lib;bundle-version="2.35.0",
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: tuber.xtext.validation,
+ tuber.xtext.scoping,
+ tuber.xtext,
+ tuber.xtext.formatting2,
+ tuber.xtext.parser.antlr.internal,
+ tuber.xtext.parser.antlr,
+ tuber.xtext.generator,
+ tuber.xtext.services,
+ tuber.xtext.serializer
+Import-Package: org.apache.log4j

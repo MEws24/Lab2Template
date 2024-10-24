@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: tuber.xtext.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: tuber.xtext.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: tuber.xtext.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: tuber.xtext,
+ tuber,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-21
+Export-Package: tuber.xtext.ide.contentassist.antlr,
+ tuber.xtext.ide.contentassist.antlr.internal
