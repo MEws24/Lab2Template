@@ -6,7 +6,7 @@
     <rides xmi:type="tuber:CarRide" id="5" status="COMPLETED" startTime="18-10-2024T18:25" amount="25" endTime="18-10-2024T19:10" customer="//@agents.0/@customers.2" driver="//@agents.0/@drivers.2"/>
     <rides xmi:type="tuber:CarRide" id="4" status="IDLE" startTime="N/A" amount="45" endTime="N/A" customer="//@agents.0/@customers.2" driver="//@agents.0/@drivers.2"/>
     <rides xmi:type="tuber:CarRide" id="8" status="COMPLETED" startTime="20-10-2024T19:25" amount="19" endTime="20-10-2024T20:11" customer="//@agents.0/@customers.3" driver="//@agents.0/@drivers.3"/>
-    <rides xmi:type="tuber:CarRide" id="3" status="COMPLETED" startTime="19-10-2024T19:25" endTime="19-10-2024T20:25" customer="//@agents.0/@customers.3" driver="//@agents.0/@drivers.2"/>
+    <rides xmi:type="tuber:CarRide" id="3" status="COMPLETED" startTime="19-10-2024T19:25" amount="24" endTime="19-10-2024T20:25" customer="//@agents.0/@customers.3" driver="//@agents.0/@drivers.2"/>
     <customers rating="4.1" name="C1" status="ONGOING">
       <supportCalls xmi:type="tuber:AccountIssue" description="Account Not Working"/>
       <supportCalls xmi:type="tuber:PaymentIssue" description="Extra money deducted" ride="//@agents.0/@rides.0"/>
@@ -25,7 +25,7 @@
     </customers>
     <customers rating="4.8" name="C4" status="IDLE">
       <location lat="48.37" long="16.98"/>
-      <payments id="5" status="true" amount="24"/>
+      <payments id="5" amount="24" pays="//@agents.0/@rides.5"/>
       <payments id="6" status="true" amount="19" pays="//@agents.0/@rides.4"/>
     </customers>
     <drivers rating="4.8" name="D1" status="ONGOING">
@@ -43,6 +43,25 @@
     <drivers rating="3.8" name="D6" status="IDLE">
       <location lat="48.89" long="16.71"/>
       <drives xmi:type="tuber:Car" name="BMW"/>
+    </drivers>
+  </agents>
+  <agents city="Linz">
+    <rides xmi:type="tuber:MotorRide" id="6" status="ONGOING" startTime="22-10-2024T16:19" amount="10" endTime="N/A" customer="//@agents.1/@customers.0" driver="//@agents.1/@drivers.0"/>
+    <rides xmi:type="tuber:CarRide" id="7" status="COMPLETED" startTime="17-10-2024T19:20" amount="28" endTime="17-10-2024T19:57" customer="//@agents.1/@customers.0" driver="//@agents.1/@drivers.1"/>
+    <customers rating="4.9" name="C5" status="ONGOING">
+      <supportCalls xmi:type="tuber:SafetyIssue" description="Driver drove very rash" ride="//@agents.1/@rides.0"/>
+      <location lat="48.18" long="18.22"/>
+      <payments id="2" status="true" amount="28" pays="//@agents.1/@rides.1"/>
+      <payments id="3" amount="10" pays="//@agents.1/@rides.0"/>
+    </customers>
+    <drivers rating="5.0" name="D4" status="ONGOING">
+      <supportCalls xmi:type="tuber:PaymentIssue" description="Payment not received" ride="//@agents.1/@rides.0"/>
+      <location lat="48.18" long="18.22"/>
+      <drives xmi:type="tuber:MotorBike" name="Yamaha"/>
+    </drivers>
+    <drivers rating="4.8" name="D5" status="IDLE">
+      <location lat="48.18" long="18.38"/>
+      <drives xmi:type="tuber:Car" name="Volkswagen"/>
     </drivers>
   </agents>
 </tuber:TUber>
